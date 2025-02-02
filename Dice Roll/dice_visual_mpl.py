@@ -19,13 +19,10 @@ frequencies = [results.count(value) for value in possible_results]
 plt.style.use('classic')
 fig, ax = plt.subplots(figsize=(15, 9), dpi=128)
 ax.bar(possible_results, frequencies, color='blue')
+
+# Customize graph
 plt.xticks(range(min(possible_results), max(possible_results) + 1, 1))
 for i, frequency in enumerate(frequencies):
     ax.text(possible_results[i], frequency + 1, str(frequency), ha='center', va='bottom')
 
-# Further customize chart
-#fig.update_layout(xaxis_dtick=1)
-
 plt.show()
-
-print(frequencies)
