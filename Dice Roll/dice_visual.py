@@ -8,18 +8,12 @@ die_2 = Die(sides)
 
 # Make some random rolls and store results in a list
 num_of_rolls = 10000
-results = []
-for roll_num in range(num_of_rolls):
-    result = die_1.roll() + die_2.roll()
-    results.append(result)
+results = [die_1.roll() + die_2.roll() for roll_num in range(num_of_rolls)]
 
 # Analyze the results
-frequencies = []
 max_result = die_1.num_sides + die_2.num_sides
 possible_results = range(2, max_result+1)
-for value in possible_results:
-    frequency = results.count(value)
-    frequencies.append(frequency)
+frequencies = [results.count(value) for value in possible_results]
 
 # Visualize the results
 title = f"Results of Rolling Two D{sides} {num_of_rolls} Times"
